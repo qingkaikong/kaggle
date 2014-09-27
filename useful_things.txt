@@ -1,0 +1,39 @@
+############################ Data Science London #########################################
+(1) Why scaling data before we train the algorithm didn't improve the result?
+    Scaling should certainly affect results, but it should improve them. However, 
+    the performance of an SVM is critically dependent on its C setting, which trades 
+    off the cost of misclassification on the training set vs. model simplicity, and 
+    which should be determined using e.g. grid search and nested cross-validation. 
+    The default settings are very rarely optimal for any given problem.
+    
+(2) How to choose the components of PCA?
+    pca = decomposition.PCA()
+    pca.fit(X, y)
+    plt.plot(pca.explained_variance_)
+    plt.show()
+    Just plot the explained_variance_, this will show you the components, how much 
+    variance with components explained
+    
+(3) The Data_Science London, they gave 1000 training data, and 9000 testing data, so
+    this is the way that you can use 9000 testing data point. 
+    I tried the "semisupervised" method but it didn't work for me. This was my procedure:
+    1. train_test_split with a test set of 30%.
+    2. Train using the remaining 70% -> accuracy of test set = 0.913
+    3. Predicted the results and took the records with "good probabilities"( > 95%) 
+        I got 53% of good probabilities.
+    4. Created a bigger training set using the original 70% and the new 4785 examples.
+    5. Train a new classifier
+        Repeat from (3) 2 more times.
+        Each time the "good probabilities" percentage increases; in 3 iterations I got to 
+        from 53% to 92% but the error on the original test set was very similar 92-93%. 
+        Same story in the public test set mainly the same accuracy as the SVM benchmark.
+    I tried using and SVM(C=10) alone and with a pca with 12 components. 
+    
+(4) How to overcome overfitting?
+    I got some progress but it was more playing with different SVM parameters, as I mention previously I 
+    found over-fitting to be a problem so increasing C helped me. The semi-supervised idea gave me a small 
+    boost but after reaching 95% every small improvement is important! On the other hand I believe I am 
+    over-fitting the public Leaderboard a little bit.
+    
+(5) How to achieve 99% accuracy?
+    https://www.kaggle.com/c/data-science-london-scikit-learn/forums/t/8104/anyone-in-the-99-league-care-to-share-the-solution
