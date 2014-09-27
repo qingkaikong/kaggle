@@ -37,3 +37,11 @@
     
 (5) How to achieve 99% accuracy?
     https://www.kaggle.com/c/data-science-london-scikit-learn/forums/t/8104/anyone-in-the-99-league-care-to-share-the-solution
+
+(6) QQ plot
+     And then plot the QQ plot. In statistics, a Q–Q plot ("Q" stands for quantile) is 
+     a probability plot, which is a graphical method for comparing two probability 
+     distributions by plotting their quantiles against each other.
+     
+(7) Kernel density estimation
+    
